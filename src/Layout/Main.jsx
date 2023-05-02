@@ -1,9 +1,15 @@
 import React from 'react';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
+import {Outlet} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Main = () => {
     return (
         <div>
-            <h2>this is main page</h2>
+           <Header></Header>
+             <Outlet></Outlet>
+           <Footer></Footer>
         </div>
     );
 };
