@@ -2,8 +2,12 @@ import React, { useContext, useState } from 'react';
 import './Login.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from '../../firebase/firebase.config';
+
 const Login = () => {
     const [show, setShow] = useState(false);
+
     const {signIn} = useContext(AuthContext);
 
     const handleLogin = event =>{
@@ -24,6 +28,21 @@ const Login = () => {
           console.log(error)
          })
          
+    }
+
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+    const handleGoogleLogin =()=>{
+          signInWithPopup(auth, provider)
+
+          .then(result=>{
+            const user =result.user;
+            console.log(user);
+          })
+
+          .catch(error=>{
+            console.log(error)
+          })
     }
     return (
         <div>
@@ -47,6 +66,7 @@ const Login = () => {
             </div>
             <input className='btn-submit' type="submit" value='Login' />
             </form>
+             <button onClick={handleGoogleLogin} className='btn-submit'>Login with Google</button>
              <p><small>new to ema-john <Link to='/signup'>Create an account</Link> </small></p>
         </div>
         </div>
