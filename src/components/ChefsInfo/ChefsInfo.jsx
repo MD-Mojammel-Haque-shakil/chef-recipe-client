@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import './Chefsinfo.css'
+import {Container } from 'react-bootstrap';
 
 const ChefsInfo = () => {
     const [chefs, setChefs] = useState([])
@@ -10,11 +14,27 @@ const ChefsInfo = () => {
         .catch(error=> console.log(error))
     },[])
     return (
-        <div>
+        
+      <div className='mt-4 mb-4'>
+        <h3 className='text-center mb-3'>Here some information of six chef</h3>
+                <Container className='chefs-container'>
             {
-                chefs.map(chef=> <p>{chef.Chef_Name}</p>)
+                chefs.map(chef=> <div className='ms-4' key={chef.id}>
+    <Card style={{ width: '17rem' }}>
+      <Card.Img className='w-50 mx-auto mt-2' variant="top" src={chef.Chef_Picture} />
+      <Card.Body >
+        <Card.Title className='text-center'>Name: {chef.Chef_Name}</Card.Title>
+       <div className='d-flex justify-content-around'>
+       <p>Experience: {chef.Years_of_experience} years</p>
+       <p>Likes: {chef.Likes}</p>
+       </div>
+        <Button className='w-50 mx-auto ms-5' variant="primary">View Recipes</Button>
+      </Card.Body>
+    </Card>
+                </div>)
             }
-        </div>
+        </Container>
+      </div>
     );
 };
 
