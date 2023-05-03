@@ -1,13 +1,36 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 const Login = () => {
     const [show, setShow] = useState(false);
+    const {signIn} = useContext(AuthContext);
+
+    const handleLogin = event =>{
+        event.preventDefault()
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+        event.target.reset()
+
+         signIn(email, password)
+         .then(result =>{
+          const loggedUser = result.user;
+          console.log(loggedUser)
+          form.reset()
+         })
+         .catch(error=>{
+          console.log(error)
+         })
+         
+    }
     return (
         <div>
               <div className='form-container'>
             <h2 className='form-title'>Login</h2>
-            <form>
+
+            <form onSubmit={handleLogin}>
             <div className='form-control'>
                 <label htmlFor="email">Email</label>
                 <input type="email" name='email' id='' required />
