@@ -1,28 +1,35 @@
 import React from 'react';
-import { Button, Container, Nav,  NavDropdown, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 
 const Header = () => {
     return (
-        <div>
-          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#features">Home</Nav.Link>
-            <Nav.Link href="#pricing">Blog</Nav.Link>
-            
-          </Nav>
-          <Nav>
-            <Nav.Link href="#deets">profile</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-            <Button variant="success">Login</Button>
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <div className='container'>
+       <nav className="navbar navbar-expand-lg bg-primary">
+  <div className="container-fluid">
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a className="navbar-brand text-white" href="#">Hidden brand</a>
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <a className="nav-link active text-white" aria-current="page" href="#">Home</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link text-white" href="#">Link</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link disabled text-white">Disabled</a>
+        </li>
+      </ul>
+      <div className="d-flex align-items-center" role="search">
+      <Link to ='/login'><button className="btn btn-outline-success text-white" type="submit">login</button></Link>
+       
+      </div>
+    </div>
+  </div>
+</nav>
         </div>
     );
 };
