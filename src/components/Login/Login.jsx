@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './Login.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from '../../firebase/firebase.config';
 
 const Login = () => {
@@ -31,9 +31,23 @@ const Login = () => {
     }
 
     const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
     const handleGoogleLogin =()=>{
-          signInWithPopup(auth, provider)
+          signInWithPopup(auth, googleProvider)
+
+          .then(result=>{
+            const user =result.user;
+            console.log(user);
+          })
+
+          .catch(error=>{
+            console.log(error)
+          })
+    }
+
+    const githubProvider = new GithubAuthProvider();
+    const handleGithubLogin =()=>{
+        signInWithPopup(auth, githubProvider)
 
           .then(result=>{
             const user =result.user;
@@ -67,6 +81,7 @@ const Login = () => {
             <input className='btn-submit' type="submit" value='Login' />
             </form>
              <button onClick={handleGoogleLogin} className='btn-submit'>Login with Google</button>
+             <button onClick={handleGithubLogin} className='btn-submit'>Github Login</button>
              <p><small>new to ema-john <Link to='/signup'>Create an account</Link> </small></p>
         </div>
         </div>

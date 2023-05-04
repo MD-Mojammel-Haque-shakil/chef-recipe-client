@@ -14,7 +14,7 @@ const Header = () => {
       <a className="navbar-brand text-white" href="#">Hidden brand</a>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active text-white" aria-current="page" href="#">Home</a>
+          <Link to='/' className="nav-link active text-white" aria-current="page" href="#">Home</Link>
         </li>
         <li className="nav-item">
           <a className="nav-link text-white" href="#">Link</a>
