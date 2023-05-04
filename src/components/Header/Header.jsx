@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-    <div className='container'>
-       <nav className="navbar navbar-expand-lg bg-primary">
+    <div className=''>
+       <nav className="navbar navbar-expand-lg bg-dark">
   <div className="container-fluid">
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -17,10 +17,7 @@ const Header = () => {
           <Link to='/' className="nav-link active text-white" aria-current="page" href="#">Home</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-white" href="#">Link</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link disabled text-white">Disabled</a>
+        <Link to='/' className="nav-link active text-white" aria-current="page" href="#">Blog</Link>
         </li>
       </ul>
       <div className="d-flex align-items-center" role="search">
