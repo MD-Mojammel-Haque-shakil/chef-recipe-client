@@ -10,6 +10,8 @@ import Login from './components/Login/Login.jsx';
 import SignUp from './components/Signup/Signup.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
 import Chefs from './components/Chefs/Chefs.jsx';
+import Error from './components/Error/Error.jsx';
+import Blogs from './components/Blogs/Blogs.jsx';
 
 
 
@@ -17,6 +19,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: '/',
@@ -34,6 +37,9 @@ const router = createBrowserRouter([
         path:'/chef/:id',
         element:<Chefs></Chefs>,
         loader: ({params})=>fetch(`http://localhost:5000/chef/${params.id}`)
+      },{
+        path: '/blog',
+        element: <Blogs></Blogs>
       }
     ]
   }

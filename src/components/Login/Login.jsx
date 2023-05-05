@@ -7,25 +7,37 @@ import app from '../../firebase/firebase.config';
 
 const Login = () => {
     const [show, setShow] = useState(false);
-    
+    const [error, setError]= useState ('');
+
     const {signIn} = useContext(AuthContext);
 
     const handleLogin = event =>{
+        
         event.preventDefault()
+        setError('')
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
-        event.target.reset()
+         if(password.length < 6){
+          return setError('please at least set password gather then 6 charecter');
+        }
+        if (email.length < 1){
+          return setError('please enter your email')
+        }
+        // event.target.reset()
 
          signIn(email, password)
          .then(result =>{
           const loggedUser = result.user;
           console.log(loggedUser)
-          form.reset()
+          if(loggedUser.email !=email){
+            alert('please verify your email')
+        }
+          // form.reset()
          })
          .catch(error=>{
-          console.log(error)
+         setError(error.message)
          })
          
     }
@@ -66,7 +78,7 @@ const Login = () => {
             <form onSubmit={handleLogin}>
             <div className='form-control'>
                 <label htmlFor="email">Email</label>
-                <input type="email" name='email' id='' required />
+                <input type="email" name='email' id=''  />
             </div>
             <div className='form-control'>
                 <label htmlFor="password">Password</label>
@@ -78,11 +90,13 @@ const Login = () => {
                         }
                         </small></p>
             </div>
+            <p>{error}</p>
             <input className='btn-submit' type="submit" value='Login' />
             </form>
+          
              <button onClick={handleGoogleLogin} className='btn-submit'>Login with Google</button>
              <button onClick={handleGithubLogin} className='btn-submit'>Github Login</button>
-             <p><small>new to ema-john <Link to='/signup'>Create an account</Link> </small></p>
+             <p><small>new to teasty Food Zone? <Link to='/signup'>Create an account</Link> </small></p>
         </div>
         </div>
     );

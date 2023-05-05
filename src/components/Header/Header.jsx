@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink , Link} from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 
@@ -20,25 +20,18 @@ const Header = () => {
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a className="navbar-brand text-white" href="#">Chicken & Pizza </a>
+      <a className="navbar-brand text-white" href="#"> Teasty Food Zone </a>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <Link to='/' className="nav-link active text-white" aria-current="page" href="#">Home</Link>
+          <NavLink to='/' className ={({isActive})=> isActive ? " nav-link active text-success" : "nav-link active text-white" } aria-current="page">Home</NavLink>
         </li>
         <li className="nav-item">
-        <Link to='/' className="nav-link active text-white" aria-current="page" href="#">Blog</Link>
-        </li>
-        <li className="nav-item">
-        <Link to='/' className="nav-link active text-white" aria-current="page" href="#">About</Link>
-        </li>
-        <li className="nav-item">
-        <Link to='/' className="nav-link active text-white" aria-current="page" href="#">Contact</Link>
+        <NavLink to='/blog' className ={({isActive})=> isActive ? " nav-link active text-success" : "nav-link active text-white" } aria-current="page">Blogs</NavLink>
         </li>
       </ul>
       <div className="d-flex align-items-center" role="search">
        {
-        user? <>
-          <li className='text-white'>{user.email}</li>
+        user ? <>
           <img title={user.displayName} style = {{width:50, height:50}} src={user.photoURL} alt="" />
           <button onClick={handleLogOut} className="btn btn-outline-success text-white" type="submit">sign out</button>
         </>
