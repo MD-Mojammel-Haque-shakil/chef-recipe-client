@@ -1,0 +1,27 @@
+[
+    {  
+      "id": 1,
+      "img": "https://cdn-icons-png.flaticon.com/512/88/88350.png?w=740&t=st=1681215090~exp=1681215690~hmac=a04a343d956a0812fa0e2fc3690b9ef1434191cbb63eda582bfe8965dcaef18b",
+      "title": "Account & Finance",
+      "available_job": "300 Jobs Available"
+    },
+    {    
+      "id": 2,
+        "img": "https://cdn-icons-png.flaticon.com/512/45/45706.png?w=740&t=st=1681215166~exp=1681215766~hmac=b067ba27241004d84dbb8b4ee5d4d1d231a7bc7ceef2dab11fcbaaf42cef8d72",
+        "title": "Creative Design",
+        "available_job": "100+ Jobs Available"
+      },
+      {
+        "id": 3,
+        "img": "https://cdn-icons-png.flaticon.com/512/126/126210.png?w=740&t=st=1681215227~exp=1681215827~hmac=700a4c088a0115369b9ba8da623b4cf69a021d5e1fc0a092e61561266dd7f6a7",
+        "title": "Marketing & Sales",
+        "available_job": "150 Jobs Available"
+      },
+      {  
+        "id": 4,
+        "img": "https://cdn-icons-png.flaticon.com/512/126/126317.png?w=740&t=st=1681215273~exp=1681215873~hmac=1bf560a1e640616f1b4b3bbfcf15cd388546c5bda527589931ea3f9f7375ea26",
+        "title": "Engineering Job",
+        "available_job": "220+ Jobs Available"
+      }
+  ]
+  

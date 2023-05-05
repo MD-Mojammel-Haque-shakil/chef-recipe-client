@@ -54,19 +54,16 @@ const Footer = () => {
         <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
          
           <h6 className="text-uppercase fw-bold mb-4">
-            Products
+            Find us on Socical Media
           </h6>
           <p>
-            <a href="#!" className="text-reset">Angular</a>
+            <a href="#!" className="text-reset">Facebook</a>
           </p>
           <p>
-            <a href="#!" className="text-reset">React</a>
+            <a href="#!" className="text-reset">Twitter</a>
           </p>
           <p>
-            <a href="#!" className="text-reset">Vue</a>
-          </p>
-          <p>
-            <a href="#!" className="text-reset">Laravel</a>
+            <a href="#!" className="text-reset">instagram</a>
           </p>
         </div>
        
@@ -109,8 +106,8 @@ const Footer = () => {
   </section>
  
   <div className="text-center p-4 text-light">
-    © 2021 Copyright:
-    <a className="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    © 2023 Copyright:
+    <a className="text-reset fw-bold" href="https://developershakil.com/">developershakil.com</a>
   </div>
   
 </footer>

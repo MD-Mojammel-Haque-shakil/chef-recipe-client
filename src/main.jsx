@@ -9,6 +9,7 @@ import Home from './components/Home/Home.jsx';
 import Login from './components/Login/Login.jsx';
 import SignUp from './components/Signup/Signup.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
+import Chefs from './components/Chefs/Chefs.jsx';
 
 
 
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <SignUp></SignUp>
       },
+      {
+        path:'/chef/:id',
+        element:<Chefs></Chefs>,
+        loader: ({params})=>fetch(`http://localhost:5000/chef/${params.id}`)
+      }
     ]
   }
 ])

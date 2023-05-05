@@ -3,9 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Chefsinfo.css'
 import {Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ChefsInfo = () => {
-    const [chefs, setChefs] = useState([])
+    const [chefs, setChefs] = useState([]);
+  
+  
 
     useEffect(()=>{
         fetch('http://localhost:5000/chef')
@@ -16,7 +19,7 @@ const ChefsInfo = () => {
     return (
         
       <div className='mt-4 mb-4'>
-        <h3 className='text-center mb-3'>Here some information of six chef</h3>
+        <h3 className='text-center mb-3'>Here some Details of <span className='text-warning'>OUR TOP</span> chef</h3>
                 <Container className='chefs-container'>
             {
                 chefs.map(chef=> <div className='ms-4' key={chef.id}>
@@ -28,7 +31,9 @@ const ChefsInfo = () => {
        <p>Experience: {chef.Years_of_experience} years</p>
        <p>Likes: {chef.Likes}</p>
        </div>
-        <Button className='w-50 mx-auto ms-5' variant="primary">View Recipes</Button>
+        {/* <Link    to = {`/chefs/${id}`}><Button className='w-50 mx-auto ms-5' variant="primary">View Recipes</Button></Link> */}
+        <Link to = {`/chef/${chef.id}`}> <Button className='w-50 mx-auto ms-5' variant="primary">View Recipes</Button></Link>
+     
       </Card.Body>
     </Card>
                 </div>)

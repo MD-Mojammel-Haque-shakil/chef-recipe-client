@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const SignUp = () => {
     const [error, setError] = useState('');
@@ -14,12 +15,21 @@ const SignUp = () => {
           const name = form.name.value;
           const email = form.email.value;
           const password = form.password.value;
-          const photoUrl = form.photourl.value
+          const photoUrl = form.photourl.value;
           console.log(name, email, password, photoUrl)
           
           createUser(email, password)
           .then(result =>{
             const loggedUser = result.user;
+
+            updateProfile(loggedUser, {
+                displayName: name, photoURL: photoUrl
+              }).then(() => {
+                 alert('registation completed')
+              }).catch((error) => {
+               console.log(error)
+              });
+              
             console.log(loggedUser)
             form.reset()
           })
